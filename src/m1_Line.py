@@ -225,6 +225,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        self.start = start.clone()
+        self.end = end.clone()
 
     def __repr__(self):
         """
@@ -334,6 +336,7 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        return Line(self.start, self.end)
 
     def reverse(self):
         """
@@ -367,6 +370,10 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
+        a = self.end
+        self.end = self.start
+        self.start = a
+        return Line(self.start, self.end)
 
     def slope(self):
         """
